@@ -1,0 +1,8 @@
+{ "tools" : ["hammer1", "hammer2", "hammer3", "shovel3", "net", "paintbrush", "scrapper", "mag", "pencil", "wateringcan"],
+    "axes" : ["axe1", "axe2", "axe3", "axe4"],
+    "pickaxes": ["pickaxe1", "pickaxe2", "pickaxe3"],
+    "spades": ["spade1", "spade2", "spade3"],
+    
+    "tree": ["tree", "shrub"],
+    "rock": ["rock1", "rock2"],
+    "seed": ["sapling1", "sapling2"]}
