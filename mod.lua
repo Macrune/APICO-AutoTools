@@ -41,6 +41,9 @@ function data(ev, data)
     axes = data["axes"]
     pickaxes = data["pickaxes"]
     spades = data["spades"]
+    tree = data["tree"]
+    rock = data["rock"]
+    seed = data["seed"]
   end
 end
 

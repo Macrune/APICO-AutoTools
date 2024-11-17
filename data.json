@@ -5,4 +5,7 @@
     
     "tree": ["tree", "shrub"],
     "rock": ["rock1", "rock2"],
-    "seed": ["sapling1", "sapling2"]}
+    "seed": ["sapling1", "sapling2", "seedling1", "seedling2", "seedling3", "seedling4", "seedling5", "seedling6", "seedling7",
+            "seedling8", "seedling9", "seedling10", "seedling11", "seedling12", "seedling13", "seedling14", "seedling15", "seedling16",
+            "seedling17", "seedling18", "seedling19", "seedling20", "seedling21", "seedling23", "coralbaby24", "coralbaby25", "coralbaby26",
+            "coralbaby27", "seedling28", "seedling29", "seedling30", "seedling31"]}

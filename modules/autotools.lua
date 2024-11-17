@@ -16,8 +16,9 @@ function get_all_tools()
         -- Checks if item is an axe and then add them to table
         if string.find(key, "axe") and not string.find(key, "pickaxe") then
             table.insert(dictAxes, key)
+            api_log("get_all_tools", val["category"])
         end
-
+        
         -- Checks if item is a pickaxe and then add them to table
         if string.find(key, "pickaxe") then
             table.insert(dictPickaxes, key)
@@ -27,30 +28,37 @@ function get_all_tools()
         if string.find(key, "spade") then
             table.insert(dictSpades, key)
         end 
+        
+        if val["category"] == "Tools" then
+            if not tableContain(dictAxes, key) and  not tableContain(dictPickaxes, key) and not tableContain(dictSpades, key) then
+                table.insert(dictTools, key)
+            end
+        end
 
-        --Checks if item has tools describtion for target tables
+        --Checks if item has tools description for target tables
         if val["tools"] ~= nil then
-            --Loop to find what tools is usable to target
-            for tool in val["tools"] do
-                --If tool is an axe then its a tree
-                if string.find(tool, "axe") and not string.find(tool, "pickaxe") then
-                    table.insert(dictTrees, key)
-                end
+            for _, tool in pairs(val["tools"]) do
+                if tool ~= nil then
+                    --If tool is an axe then its a tree
+                    if string.find(tool, "axe") and not string.find(tool, "pickaxe") then
+                        table.insert(dictTrees, key)
+                    end
 
-                --If tool is a pickaxe then its a rock
-                if string.find(tool, "pickaxe") then
-                    table.insert(dictTrees, key)
-                end
+                    --If tool is a pickaxe then its a rock
+                    if string.find(tool, "pickaxe") then
+                        table.insert(dictRocks, key)
+                    end
 
-                --if tool is a spaded then its a seed
-                if string.find(tool, "spade") then
-                    table.insert(dictTrees, key)
+                    --if tool is a spaded then its a seed
+                    if string.find(tool, "spade") then
+                        table.insert(dictSeeds, key) 
+                    end
                 end
             end
         end
     end
 
-    api_log("get_all_tools", tostring(count))
+    dump(dictTools)
     dump(dictAxes)
     dump(dictPickaxes)
     dump(dictSpades)
@@ -64,9 +72,17 @@ function dump(o)
     api_log("dump", "Dumping")
     for _, val in pairs(o) do
         str = str..val.." "
-
-    api_log("dump", str)
     end
+    api_log("dump", str)
+end
+
+function tableContain(table, value)
+    for i=0, #table, 1 do
+        if table[i] == value then
+            return true
+        end
+    end
+    return false
 end
 
 function check_highlight()
@@ -76,8 +92,19 @@ function check_highlight()
 
     if highlighted ~= nil and not isUsingTool then
         local inst = api_get_inst(highlighted)
-        api_log("check_highlight", tostring(inst["oid"]))
         if inst ~= nil then
+            if tableContain(tree, inst["oid"]) then
+                return "axe"
+            end
+
+            if tableContain(rock, inst["oid"]) then
+                return "pickaxe"
+            end
+
+            if tableContain(seed, inst["oid"]) then
+                return "spade"
+            end
+            --[[
             if inst["oid"] == "tree" or inst["oid"] == "shrub" then
                 return "axe"
             elseif inst["oid"] == "rock1" or inst["oid"] == "rock2" then
@@ -87,6 +114,7 @@ function check_highlight()
             else
                 return nil
             end
+            ]]
         end
     else
         return nil
