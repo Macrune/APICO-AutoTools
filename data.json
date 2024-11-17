@@ -1,11 +1,19 @@
-{ "tools" : ["hammer1", "hammer2", "hammer3", "shovel3", "net", "paintbrush", "scrapper", "mag", "pencil", "wateringcan"],
-    "axes" : ["axe1", "axe2", "axe3", "axe4"],
-    "pickaxes": ["pickaxe1", "pickaxe2", "pickaxe3"],
-    "spades": ["spade1", "spade2", "spade3"],
+{
+    "addTools" : [],
+    "addAxes" : [],
+    "addPickaxes": [],
+    "addSpades": [],
     
-    "tree": ["tree", "shrub"],
-    "rock": ["rock1", "rock2"],
-    "seed": ["sapling1", "sapling2", "seedling1", "seedling2", "seedling3", "seedling4", "seedling5", "seedling6", "seedling7",
-            "seedling8", "seedling9", "seedling10", "seedling11", "seedling12", "seedling13", "seedling14", "seedling15", "seedling16",
-            "seedling17", "seedling18", "seedling19", "seedling20", "seedling21", "seedling23", "coralbaby24", "coralbaby25", "coralbaby26",
-            "coralbaby27", "seedling28", "seedling29", "seedling30", "seedling31"]}
+    "addTree": [],
+    "addRock": [],
+    "addSeed": [],
+        
+    
+    "ignoreTools" : [],
+    "ignoreAxes" : [],
+    "ignorePickaxes" : [],
+    "ignoreSpades" : [],
+    
+    "ignoreTree" : [],
+    "ignoreRock" : [],
+    "ignoreSeed" : []}

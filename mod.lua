@@ -14,22 +14,15 @@ end
 -- init is called once registered and gives you a chance to run any setup code
 function init() 
 
-  -- turn on devmode
   api_set_devmode(true)
-
-  -- log to the console
-  api_log("init", "Hello World!")
-
-  -- if you dont return success here your mod will not load
-  -- this can be useful if your define fails as you can decide to NOT return "Success" to tell APICO 
-  -- that something went wrong and to ignore your mod
+  api_get_data()
   
   return "Success"
 end
 
 
 function ready()
-  api_get_data()
+  
   api_log("ready", "getting tools")
   get_all_tools()
   api_log("ready", "loaded mod")
@@ -37,13 +30,22 @@ end
 
 function data(ev, data)
   if ev == "LOAD" and data ~= nil then
-    tools = data["tools"]
-    axes = data["axes"]
-    pickaxes = data["pickaxes"]
-    spades = data["spades"]
-    tree = data["tree"]
-    rock = data["rock"]
-    seed = data["seed"]
+
+    addTools = data["addTools"]
+    addAxes = data["addAxes"]
+    addPickaxes = data["addPickaxes"]
+    addSpades = data["addSpades"]
+    addTree = data["addTree"]
+    addRock = data["addRock"]
+    addSeed = data["addSeed"]
+
+    ignoreTools = data["ignoreTools"]
+    ignoreAxes = data["ignoreAxes"]
+    ignorePickaxes = data["ignorePickaxes"]
+    ignoreSpades = data["ignoreSpades"]
+    ignoreTree = data["ignoreTree"]
+    ignoreRock = data["ignoreRock"]
+    ignoreSeed = data["ignoreSeed"]
   end
 end
 
